@@ -18,5 +18,24 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $roles = [
+            [
+                'name' => 'User',
+                'status' => true,
+            ],
+            [
+                'name' => 'Admin',
+                'status' => true,
+            ],
+            [
+                'name' => 'Moderator',
+                'status' => true,
+            ],
+        ];
+
+        foreach ($roles as $role) {
+            \App\Models\Role::create($role);
+        }
     }
 }

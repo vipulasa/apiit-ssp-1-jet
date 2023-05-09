@@ -24,7 +24,9 @@ return new class extends Migration
             // $table->string('role')->default('user'); // 255 bytes
 
             // recommended
-            $table->tinyInteger('role')->default(1); // 1 byte
+            // $table->tinyInteger('role')->default(1); // 1 byte
+
+            $table->foreignId('role_id')->default(1)->constrained('roles');
 
             $table->string('password');
             $table->rememberToken();
