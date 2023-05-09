@@ -16,6 +16,16 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+
+            // can be used, ok for small projects
+            // $table->enum('role', ['admin', 'user'])->default('user'); // 6 bytes
+
+            // no fkin way
+            // $table->string('role')->default('user'); // 255 bytes
+
+            // recommended
+            $table->tinyInteger('role')->default(1); // 1 byte
+
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
