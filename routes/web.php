@@ -20,13 +20,16 @@ Route::get('/', function () {
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'role:1'
 ])->group(function () {
 
     Route::get('/dashboard', function () {
         return view('dashboard');
     })
-    ->middleware(['role:1'])
     ->name('dashboard');
+
+    Route::resource('roles', \App\Http\Controllers\RoleController::class);
+
 
 });
