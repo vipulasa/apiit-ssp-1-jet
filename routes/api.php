@@ -58,6 +58,15 @@ Route::post('/mobile-login', function (Request $request) {
     ];
 });
 
+// curl --location 'http://localhost:8000/api/mobile-register' \
+// --header 'Content-Type: application/json' \
+// --data-raw '{
+//     "name": "John Doe",
+//     "email" : "john1@doe.com",
+//     "password" : "john",
+//     "mobile_number" : 123456778
+// }'
+
 Route::post('/mobile-register', function (Request $request) {
 
     // validate the request and check if a name, email, mobile number exists
