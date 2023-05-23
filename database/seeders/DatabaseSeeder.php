@@ -45,5 +45,9 @@ class DatabaseSeeder extends Seeder
             'password' => \Illuminate\Support\Facades\Hash::make('password'),
             'role_id' => 1,
         ]);
+
+        $this->call([
+            ProductSeeder::class,
+        ]);
     }
 }
